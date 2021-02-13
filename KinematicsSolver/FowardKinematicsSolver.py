@@ -11,7 +11,7 @@ class fowardKinematics:
         for i in range(self.dh_matrix.shape[0]):
             #print(i)
             self.joint_matrix.append(np.zeros((4,4)))
-            #print(self.joint_matrix[0][0])
+            #print(self.joint_matrix)
             self.joint_matrix[-1][0][0] = cos(dh_matrix[i][0])
             self.joint_matrix[-1][0][1] = -sin(dh_matrix[i][0])*cos(dh_matrix[i][1])
             self.joint_matrix[-1][0][2] = sin(dh_matrix[i][0])*cos(dh_matrix[i][1])
