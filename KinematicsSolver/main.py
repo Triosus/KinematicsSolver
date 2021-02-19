@@ -17,11 +17,9 @@ import random
 #print(solver.transformation(solver.transformation(solver.transformation(solver.transformation(solver.joint_matrix[0],solver.joint_matrix[1]),solver.joint_matrix[2]),solver.joint_matrix[3]),solver.joint_matrix[4]))
 
 ##print(solver.findJointPose(5))
-axis = [[0,0,1],[0,0,1]]
-angles = [[0],[0]]
+axis = [[0,0.36,0.64],[0,0,1],[0.36,0.64,0]]
+angles = [[0],[0],[0]]
 
 a = InverseKinematicsSolver.InverseKinematics(axis, angles)
-a.setGoalEndEffecterPostion([[1.4,1.4,0]])
-a.calculateIK('JT')
-
-#print(random.uniform(-1.0,1.0))
+a.setGoalEndEffecterPostion([[2,1,0]])
+a.calculateIK(10e-10, "JT")
