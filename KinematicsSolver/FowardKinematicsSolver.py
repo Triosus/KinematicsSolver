@@ -11,7 +11,8 @@ class fowardKinematics:
     def createMatrices(self, dh_matrix):
         self.joint_matrix = []
 
-        for i in range(self.dh_matrix.shape[0]):    #Generates the matrix of DH matrices
+        #Generates the matrix of DH matrices
+        for i in range(self.dh_matrix.shape[0]):
             self.joint_matrix.append(np.zeros((4,4)))
             
             self.joint_matrix[-1][0][0] = cos(dh_matrix[i][0])
@@ -34,11 +35,12 @@ class fowardKinematics:
             self.joint_matrix[-1][3][2] = 0
             self.joint_matrix[-1][3][3] = 1
         
-
-    def transformation(self, A, B): #Transforms from matrix A to matrix B
+    #Transforms from matrix A to matrix B
+    def transformation(self, A, B):
         return np.matmul(A,B)
 
-    def findJointPose(self, joint): #Gives transformation from robot base to selected joint
+    #Gives transformation from robot base to selected joint
+    def findJointPose(self, joint):
         if joint == 1:
             return self.joint_matrix[0]
         else:
