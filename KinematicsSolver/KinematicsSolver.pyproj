@@ -21,8 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="FowardKinematicsSolver.py" />
-    <Compile Include="InverseKinematicsSolver.py">
+    <Compile Include="KinematicsSolver.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="main.py">

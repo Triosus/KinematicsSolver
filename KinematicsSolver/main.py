@@ -1,6 +1,7 @@
 import numpy as np
 from math import sin, cos, pi, sqrt
-import InverseKinematicsSolver
+#import InverseKinematicsSolver
+import KinematicsSolver
 
 #import FowardKinematicsSolver
 #from ursina import *
@@ -18,7 +19,12 @@ import InverseKinematicsSolver
 ##print(solver.findJointPose(5))
 axis = [[0,0,1],[1,0,0],[0,0,1]]
 angles = [pi/3,2*pi,pi/2]
+m = [[0,0,0],[pi*0,pi*0,pi*0],[1,2,2],[0,0,0]]
 
-a = InverseKinematicsSolver.InverseKinematics(axis, angles)
-a.setGoalEndEffecterPostion([1,0.7,0])
-a.calculateIK(10e-10, "JT")
+a = KinematicsSolver.KinematicsSolver(m)
+a.calculateIK(axis, [1,1,0] ,10e-10, "JT")
+
+a.findEndEffectorPose()
+
+b = KinematicsSolver.KinematicsSolver([[24.29518*pi/180,0,162.88556*pi/180],[0,0,0],[1,2,2],[0,0,0]])
+b.findEndEffectorPose()
